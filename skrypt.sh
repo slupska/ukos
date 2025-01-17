@@ -37,5 +37,7 @@ fi
 else
 echo "Nie podales wlasciwego roku"
 fi
-pwd
+#Zadanie 3
+mv ./Pozostale/Przepisy/"Lista zakupow 2022.txt" ./Pozostale/"Listy zakupow"/"Swieta 2022"/"Lista zakupow 2022.txt"
+mv ./Pozostale/Przepisy/"Lista zakupow 2023.txt" ./Pozostale/"Listy zakupow"/"Swieta 2023"/"Lista zakupow 2023.txt"
 
