@@ -1,0 +1,6 @@
+Historia polecen: 
+
+touch skrypt.sh
+chmod 755 skrypt.sh
+git add skrypt.sh
+git commit -m commit 1

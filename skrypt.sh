@@ -38,6 +38,23 @@ else
 echo "Nie podales wlasciwego roku"
 fi
 #Zadanie 3
-mv ./Pozostale/Przepisy/"Lista zakupow 2022.txt" ./Pozostale/"Listy zakupow"/"Swieta 2022"/"Lista zakupow 2022.txt"
-mv ./Pozostale/Przepisy/"Lista zakupow 2023.txt" ./Pozostale/"Listy zakupow"/"Swieta 2023"/"Lista zakupow 2023.txt"
+mv ./Pozostale/Przepisy/"Lista zakupow "$1".txt" ./Pozostale/"Listy zakupow"/"Swieta "$1""/"Lista zakupow "$1".txt"
+#Zadanie 4
+wynik=$(egrep '^[0-9]+\skg' ./Pozostale/"Listy zakupow"/"Swieta "$1""/"Lista zakupow "$1".txt") 
+echo "$wynik"
+echo  "$wynik" > ./Pozostale/"Listy zakupow"/"Ciezkie zakupy.txt"
+#Zadanie5 i 6
+re=[0-9]+
+if [[ $2 =~ $re ]] && [[ $3 =~ $re ]]
+then 
+head -n $2 ./Pozostale/"Listy zakupow"/"Swieta "$1""/"Lista zakupow "$1".txt" > ./Pozostale/"Listy zakupow"/"Wybrane zakupy.txt" 
+tail -n $3 ./Pozostale/"Listy zakupow"/"Swieta "$1""/"Lista zakupow "$1".txt" > ./Pozostale/"Listy zakupow"/"Wybrane zakupy.txt"
+else
+echo "Nie podales parametru drugiego lub trzeciego, albo nie sa liczbami"
+fi
+#Zadanie 7
+cd ..
+data=$(date +%Y-%m-%d)
+tar -cvzf Powtorzenie_["$data"].tar.gz ./.
+pwd
 
